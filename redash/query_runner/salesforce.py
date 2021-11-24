@@ -179,11 +179,12 @@ class Salesforce(BaseQueryRunner):
         for sobject in response["sobjects"]:
             table_name = sobject["name"]
             if sobject["queryable"] is True and table_name not in schema:
-                desc = sf.__getattr__(sobject["name"]).describe()
-                fields = desc["fields"]
+                # desc = sf.__getattr__(sobject["name"]).describe()
+                # fields = desc["fields"]
                 schema[table_name] = {
                     "name": table_name,
-                    "columns": [f["name"] for f in fields],
+                    "columns": []
+                    # "columns": [f["name"] for f in fields],
                 }
         return list(schema.values())
 
