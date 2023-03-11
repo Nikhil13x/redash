@@ -3,7 +3,7 @@
 :: Note: use lowercase names for the Docker images
 SET DOCKER_IMAGE=icuboid/redash
 :: "testing" is the latest dev build, usually matching the code in the "master" branch
-SET DOCKER_TAG=%DOCKER_IMAGE%:1.0
+SET DOCKER_TAG=%DOCKER_IMAGE%:1.0.2
 
 :: Debug|Release
 SET CONFIGURATION=Release
@@ -11,7 +11,7 @@ SET CONFIGURATION=Release
 :: strlen("\scripts\docker\") => 16
 SET APP_HOME=%~dp0
 SET APP_HOME=%APP_HOME:~0,-16%
-cd %APP_HOME%
+@REM cd %APP_HOME%
 
 :: Check dependencies
     docker version > NUL 2>&1
